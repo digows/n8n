@@ -31,17 +31,19 @@ export class LicenseState {
 	 * If the feature is an array of strings, it checks if any of the features are licensed
 	 */
 	isLicensed(feature: BooleanLicenseFeature | BooleanLicenseFeature[]) {
-		this.assertProvider();
+		return true;
 
-		if (typeof feature === 'string') return this.licenseProvider.isLicensed(feature);
-
-		for (const featureName of feature) {
-			if (this.licenseProvider.isLicensed(featureName)) {
-				return true;
-			}
-		}
-
-		return false;
+		// this.assertProvider();
+		//
+		// if (typeof feature === 'string') return this.licenseProvider.isLicensed(feature);
+		//
+		// for (const featureName of feature) {
+		// 	if (this.licenseProvider.isLicensed(featureName)) {
+		// 		return true;
+		// 	}
+		// }
+		//
+		// return false;
 	}
 
 	getValue<T extends keyof FeatureReturnType>(feature: T): FeatureReturnType[T] {
@@ -55,135 +57,168 @@ export class LicenseState {
 	// --------------------
 
 	isCustomRolesLicensed() {
-		return this.isLicensed(LICENSE_FEATURES.CUSTOM_ROLES);
+		return true;
+		//return this.isLicensed(LICENSE_FEATURES.CUSTOM_ROLES);
 	}
 
 	isDynamicCredentialsLicensed() {
-		return this.isLicensed(LICENSE_FEATURES.DYNAMIC_CREDENTIALS);
+		return true;
+		//return this.isLicensed(LICENSE_FEATURES.DYNAMIC_CREDENTIALS);
 	}
 
 	isPersonalSpacePolicyLicensed() {
-		return this.isLicensed(LICENSE_FEATURES.PERSONAL_SPACE_POLICY);
+		return true;
+		//return this.isLicensed(LICENSE_FEATURES.PERSONAL_SPACE_POLICY);
 	}
 
 	isSharingLicensed() {
-		return this.isLicensed('feat:sharing');
+		return true;
+		//return this.isLicensed('feat:sharing');
 	}
 
 	isLogStreamingLicensed() {
-		return this.isLicensed('feat:logStreaming');
+		return true;
+		//return this.isLicensed('feat:logStreaming');
 	}
 
 	isLdapLicensed() {
-		return this.isLicensed('feat:ldap');
+		return true;
+		//return this.isLicensed('feat:ldap');
 	}
 
 	isSamlLicensed() {
-		return this.isLicensed('feat:saml');
+		return true;
+		//return this.isLicensed('feat:saml');
 	}
 
 	isOidcLicensed() {
-		return this.isLicensed('feat:oidc');
+		return true;
+		//return this.isLicensed('feat:oidc');
 	}
 
 	isMFAEnforcementLicensed() {
-		return this.isLicensed('feat:mfaEnforcement');
+		return true;
+		//return this.isLicensed('feat:mfaEnforcement');
 	}
 
 	isApiKeyScopesLicensed() {
-		return this.isLicensed('feat:apiKeyScopes');
+		return true;
+		//return this.isLicensed('feat:apiKeyScopes');
 	}
 
 	isAiAssistantLicensed() {
-		return this.isLicensed('feat:aiAssistant');
+		return true;
+		//return this.isLicensed('feat:aiAssistant');
 	}
 
 	isAskAiLicensed() {
-		return this.isLicensed('feat:askAi');
+		return true;
+		//return this.isLicensed('feat:askAi');
 	}
 
 	isAiCreditsLicensed() {
-		return this.isLicensed('feat:aiCredits');
+		return true;
+		//return this.isLicensed('feat:aiCredits');
 	}
 
 	isAdvancedExecutionFiltersLicensed() {
-		return this.isLicensed('feat:advancedExecutionFilters');
+		return true;
+		//return this.isLicensed('feat:advancedExecutionFilters');
 	}
 
 	isAdvancedPermissionsLicensed() {
-		return this.isLicensed('feat:advancedPermissions');
+		return true;
+		//return this.isLicensed('feat:advancedPermissions');
 	}
 
 	isDebugInEditorLicensed() {
-		return this.isLicensed('feat:debugInEditor');
+		return true;
+		//return this.isLicensed('feat:debugInEditor');
 	}
 
 	isBinaryDataS3Licensed() {
-		return this.isLicensed('feat:binaryDataS3');
+		return true;
+		//return this.isLicensed('feat:binaryDataS3');
 	}
 
 	isMultiMainLicensed() {
-		return this.isLicensed('feat:multipleMainInstances');
+		return true;
+		//return this.isLicensed('feat:multipleMainInstances');
 	}
 
 	isVariablesLicensed() {
-		return this.isLicensed('feat:variables');
+		return true;
+		//return this.isLicensed('feat:variables');
 	}
 
 	isSourceControlLicensed() {
-		return this.isLicensed('feat:sourceControl');
+		return true;
+		//return this.isLicensed('feat:sourceControl');
 	}
 
 	isExternalSecretsLicensed() {
-		return this.isLicensed('feat:externalSecrets');
+		return true;
+		//return this.isLicensed('feat:externalSecrets');
 	}
 
 	isAPIDisabled() {
-		return this.isLicensed('feat:apiDisabled');
+		return false;
+		//return this.isLicensed('feat:apiDisabled');
 	}
 
 	isWorkerViewLicensed() {
-		return this.isLicensed('feat:workerView');
+		return true;
+		//return this.isLicensed('feat:workerView');
 	}
 
 	isProjectRoleAdminLicensed() {
-		return this.isLicensed('feat:projectRole:admin');
+		return true;
+		//return this.isLicensed('feat:projectRole:admin');
 	}
 
 	isProjectRoleEditorLicensed() {
-		return this.isLicensed('feat:projectRole:editor');
+		return true;
+		//return this.isLicensed('feat:projectRole:editor');
 	}
 
 	isProjectRoleViewerLicensed() {
-		return this.isLicensed('feat:projectRole:viewer');
+		return true;
+		//return this.isLicensed('feat:projectRole:viewer');
 	}
 
 	isCustomNpmRegistryLicensed() {
-		return this.isLicensed('feat:communityNodes:customRegistry');
+		return true;
+		//return this.isLicensed('feat:communityNodes:customRegistry');
 	}
 
 	isFoldersLicensed() {
-		return this.isLicensed('feat:folders');
+		return true;
+		//return this.isLicensed('feat:folders');
 	}
 
 	isInsightsSummaryLicensed() {
-		return this.isLicensed('feat:insights:viewSummary');
+		return true;
+		//return this.isLicensed('feat:insights:viewSummary');
 	}
 
 	isInsightsDashboardLicensed() {
-		return this.isLicensed('feat:insights:viewDashboard');
+		return true;
+		//return this.isLicensed('feat:insights:viewDashboard');
 	}
 
 	isInsightsHourlyDataLicensed() {
-		return this.isLicensed('feat:insights:viewHourlyData');
+		return true;
+		//return this.isLicensed('feat:insights:viewHourlyData');
 	}
 
 	isWorkflowDiffsLicensed() {
-		return this.isLicensed('feat:workflowDiffs');
+		return true;
+		//return this.isLicensed('feat:workflowDiffs');
 	}
 
 	isProvisioningLicensed() {
-		return this.isLicensed(['feat:saml', 'feat:oidc']);
+		return true;
+		//return this.isLicensed(['feat:saml', 'feat:oidc']);
 	}
 
 	// --------------------
@@ -191,42 +226,52 @@ export class LicenseState {
 	// --------------------
 
 	getMaxUsers() {
-		return this.getValue('quota:users') ?? UNLIMITED_LICENSE_QUOTA;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:users') ?? UNLIMITED_LICENSE_QUOTA;
 	}
 
 	getMaxActiveWorkflows() {
-		return this.getValue('quota:activeWorkflows') ?? UNLIMITED_LICENSE_QUOTA;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:activeWorkflows') ?? UNLIMITED_LICENSE_QUOTA;
 	}
 
 	getMaxVariables() {
-		return this.getValue('quota:maxVariables') ?? UNLIMITED_LICENSE_QUOTA;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:maxVariables') ?? UNLIMITED_LICENSE_QUOTA;
 	}
 
 	getMaxAiCredits() {
-		return this.getValue('quota:aiCredits') ?? 0;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:aiCredits') ?? 0;
 	}
 
 	getWorkflowHistoryPruneQuota() {
-		return this.getValue('quota:workflowHistoryPrune') ?? UNLIMITED_LICENSE_QUOTA;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:workflowHistoryPrune') ?? UNLIMITED_LICENSE_QUOTA;
 	}
 
 	getInsightsMaxHistory() {
-		return this.getValue('quota:insights:maxHistoryDays') ?? 7;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:insights:maxHistoryDays') ?? 7;
 	}
 
 	getInsightsRetentionMaxAge() {
-		return this.getValue('quota:insights:retention:maxAgeDays') ?? 180;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:insights:retention:maxAgeDays') ?? 180;
 	}
 
 	getInsightsRetentionPruneInterval() {
-		return this.getValue('quota:insights:retention:pruneIntervalDays') ?? 24;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:insights:retention:pruneIntervalDays') ?? 24;
 	}
 
 	getMaxTeamProjects() {
-		return this.getValue('quota:maxTeamProjects') ?? 0;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:maxTeamProjects') ?? 0;
 	}
 
 	getMaxWorkflowsWithEvaluations() {
-		return this.getValue('quota:evaluations:maxWorkflows') ?? 0;
+		return UNLIMITED_LICENSE_QUOTA;
+		//return this.getValue('quota:evaluations:maxWorkflows') ?? 0;
 	}
 }
